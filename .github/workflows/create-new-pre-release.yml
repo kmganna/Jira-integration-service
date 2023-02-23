@@ -20,8 +20,9 @@ jobs:
       - name: Set build version number
         run: |
           echo VERSION=$(cat VERSION).$GITHUB_RUN_NUMBER >> $GITHUB_ENV
+      
       - name: Create GitHub pre-release
-        uses: marvinpinto/action-automatic-releases@c2474141b3ccc36516de4eda6c8d225bce5d6f32
+        uses: marvinpinto/action-automatic-releases@919008cf3f741b179569b7a6fb4d8860689ab7f0
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: v${{ env.VERSION }}
