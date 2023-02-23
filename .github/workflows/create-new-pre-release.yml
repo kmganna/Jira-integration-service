@@ -1,4 +1,4 @@
-name: Create new pre-release
+name: Create new version tag
 
 on:
   push:
