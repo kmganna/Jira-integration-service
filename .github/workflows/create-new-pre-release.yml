@@ -1,0 +1,29 @@
+name: Create new pre-release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set build version number
+        run: |
+          echo VERSION=$(cat VERSION).$GITHUB_RUN_NUMBER >> $GITHUB_ENV
+      - name: Create GitHub pre-release
+        uses: marvinpinto/action-automatic-releases@latestcreate-new-pre-release.yml
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: v${{ env.VERSION }}
+          prerelease: true
+          title: ${{ env.VERSION }}
