@@ -29,13 +29,6 @@ jobs:
     
     - name: Build
       run: dotnet build -c release --no-restore
-
-    - name: Version tag release in Jira
-      uses: GeoWerkstatt/create-jira-release@v1
-      with:
-         jira-project-key: 'GI'
-         jira-automation-webhook: ${{ secrets.JIRA_AUTOMATION_WEBHOOK }}
-         build-version: v${{ env.VERSION }}
       
       
 
