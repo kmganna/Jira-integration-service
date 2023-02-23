@@ -22,7 +22,7 @@ jobs:
           echo VERSION=$(cat VERSION).$GITHUB_RUN_NUMBER >> $GITHUB_ENV
       
       - name: Create GitHub pre-release
-        uses: marvinpinto/action-automatic-releases@919008cf3f741b179569b7a6fb4d8860689ab7f0
+        uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: v${{ env.VERSION }}
