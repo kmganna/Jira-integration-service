@@ -19,7 +19,7 @@ jobs:
 
       - name: Set build version number
         run: |
-           echo VERSION= git tag | sort -V >> $GITHUB_ENV
+           echo VERSION=`git tag  | grep -E '^v[0-9]' | sort -V | tail -1` >> $GITHUB_ENV
       
    #   - name: Create GitHub pre-release
    #     uses: marvinpinto/action-automatic-releases@latest
