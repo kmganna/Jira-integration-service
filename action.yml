@@ -9,12 +9,12 @@ inputs:
     required: true
   build-version:
     description: "Version identifier"
-    required: false
+    required: true
 runs:
   using: "composite"
   steps:
     - name: Fetch entire Git history (including tags)
-      run: git fetch purne unshallow --tags
+      run: git fetch --purne --tags
       shell: bash
 
     - name: Collect issue numbers since last release/tag
