@@ -40,7 +40,7 @@ jobs:
             
             
       - name: Version tag release in Jira
-        uses: "GeoWerkstatt/create-jira-release@v1"
+        uses: "GeoWerkstatt/create-jira-release@test"
         with:
           jira-project-key: 'GI'
           jira-automation-webhook: ${{ secrets.JIRA_AUTOMATION_WEBHOOK }}
