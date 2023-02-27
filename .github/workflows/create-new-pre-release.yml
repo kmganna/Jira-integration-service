@@ -3,6 +3,7 @@ name: Create new version tag
 on:
   push:
     branches:
+      - release 
   workflow_dispatch:
 
 defaults:
@@ -18,15 +19,15 @@ jobs:
 
       - name: Set build version number
         run: |
-          echo VERSION=$(cat VERSION).$GITHUB_RUN_NUMBER >> $GITHUB_ENV
+           echo VERSION= git tag | sort -V >> $GITHUB_ENV
       
-      - name: Create GitHub pre-release
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: v${{ env.VERSION }}
-          prerelease: false
-          title: ${{ env.VERSION }}
+   #   - name: Create GitHub pre-release
+   #     uses: marvinpinto/action-automatic-releases@latest
+   #     with:
+   #       repo_token: "${{ secrets.GITHUB_TOKEN }}"
+   #      automatic_release_tag: v${{ env.VERSION }}
+   #       prerelease: false
+   #       title: ${{ env.VERSION }}
     
       - name: Version tag release in Jira
         uses: GeoWerkstatt/create-jira-release@v1
