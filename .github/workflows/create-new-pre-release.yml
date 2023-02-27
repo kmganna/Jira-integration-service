@@ -19,7 +19,7 @@ jobs:
 
       - name: Set build version number
         run: |
-           echo VERSION=`git tag  | grep -E '^v[0-9]' | sort -V | tail -1` >> $GITHUB_ENV
+           echo VERSION=`git tag  | grep -E '^v[0-9]' | sort -V | tail -1`
            echo $VERSION
       
    #   - name: Create GitHub pre-release
@@ -30,9 +30,9 @@ jobs:
    #       prerelease: false
    #       title: ${{ env.VERSION }}
     
-      - name: Version tag release in Jira
-        uses: GeoWerkstatt/create-jira-release@v1
-        with:
-         jira-project-key: 'GI'
-         jira-automation-webhook: ${{ secrets.JIRA_AUTOMATION_WEBHOOK }}
-         build-version: ${{ env.VERSION }}
+     # - name: Version tag release in Jira
+      #  uses: GeoWerkstatt/create-jira-release@v1
+       # with:
+        # jira-project-key: 'GI'
+        # jira-automation-webhook: ${{ secrets.JIRA_AUTOMATION_WEBHOOK }}
+        # build-version: ${{ env.VERSION }}
