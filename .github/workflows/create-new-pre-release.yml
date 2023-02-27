@@ -1,4 +1,4 @@
-name: Create new version tag
+name: Create release tag in Jira
 
 on:
   push:
