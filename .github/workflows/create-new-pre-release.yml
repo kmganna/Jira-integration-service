@@ -19,9 +19,10 @@ jobs:
 
       - name: Set build version number
         run: |
+           
+           echo "VERSION=`echo $(git describe --tags --abbrev=0)`"
+           echo $VERSION
            git describe --tags --abbrev=0 
-           echo "VERSION=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
-           echo $GITHUB_ENV
       
    #   - name: Create GitHub pre-release
    #     uses: marvinpinto/action-automatic-releases@latest
