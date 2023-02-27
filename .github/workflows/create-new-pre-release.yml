@@ -21,8 +21,8 @@ jobs:
         run: |
            
            echo "VERSION=`echo $(git describe --tags --abbrev=0)`"
-           echo $VERSION
-           git describe --tags --abbrev=0 
+           $VERSION
+
       
    #   - name: Create GitHub pre-release
    #     uses: marvinpinto/action-automatic-releases@latest
