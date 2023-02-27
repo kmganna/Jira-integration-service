@@ -3,7 +3,6 @@ name: Create new version tag
 on:
   push:
     branches:
-      - tag
   workflow_dispatch:
 
 defaults:
