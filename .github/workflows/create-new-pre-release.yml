@@ -31,5 +31,5 @@ jobs:
         with:
           jira-project-key: 'GI'
           jira-automation-webhook: ${{ secrets.JIRA_AUTOMATION_WEBHOOK }}
-          build-version: ${{ steps.previoustag.outputs.tag }}
+          build-version: ${{ steps.semvers.version }}
 
