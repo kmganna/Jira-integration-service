@@ -2,4 +2,4 @@
 
 This branch has a Jira release version tag code.
 
-The Repo is still under consturction.
+The  Jira integration for Github is still under consturction.
