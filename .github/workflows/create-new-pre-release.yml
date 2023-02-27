@@ -19,7 +19,8 @@ jobs:
 
       - name: Set build version number
         run: |
-           echo VERSION=`git tag  | grep -E '^v[0-9]' | sort -V | tail -1` >> $GITHUB_ENV
+           echo VERSION=`git tag  | grep -E '^v[0-9]' | sort -V | tail -1`
+           echo $VERSION
       
    #   - name: Create GitHub pre-release
    #     uses: marvinpinto/action-automatic-releases@latest
@@ -34,4 +35,4 @@ jobs:
         with:
          jira-project-key: 'GI'
          jira-automation-webhook: ${{ secrets.JIRA_AUTOMATION_WEBHOOK }}
-         build-version: v${{ env.VERSION }}
+         build-version: ${{ VERSION }}
