@@ -1,0 +1,21 @@
+name: Graphql
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  args-query:
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        query: jira_mutation.yaml
+        owner: helaili
+        name: github-graphql-action
+        
+
+
+  
